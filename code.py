@@ -54,7 +54,6 @@ from adafruit_esp32spi import adafruit_esp32spi_wifimanager
 ### Setup Sensors ###
 # Setup soil/temp sensor
 i2c = board.I2C()  # uses board.SCL and board.SDA
-# i2c = busio.I2C(board.SCL, board.SDA)
 soil_sensor = Seesaw(i2c, addr=0x36)
 
 # Setup light sensor
@@ -76,7 +75,7 @@ oled_reset = board.D9
 display_bus = displayio.I2CDisplay(i2c, device_address=0x3C, reset=oled_reset)
 
 WIDTH = 128
-HEIGHT = 32  # Change to 64 if needed
+HEIGHT = 32
 BORDER = 5
 
 display = adafruit_displayio_ssd1306.SSD1306(display_bus, width=WIDTH, height=HEIGHT)
